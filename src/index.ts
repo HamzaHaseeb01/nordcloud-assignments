@@ -1,7 +1,7 @@
 import express from "express";
 import { SuitableNetworkLocations } from './service/network';
 
-const PORT = process.env.PORT || 5000
+const PORT =   5000
 
 console.log(PORT, 'PORT')
 

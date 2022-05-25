@@ -1,7 +1,9 @@
 const request = require('supertest')
 const app = require('../index')
+import { dynamicStationLocationBody, dynamicDevicesBody, dynamicInputResult } from './input'
 
 describe('test shortest network', () => {
+
     const staticPathResult = [
         { device: [0, 0], nearestStation: [0, 0], speed: 81 },
         { devices: [100, 100], nearestStation: null },
@@ -23,6 +25,8 @@ describe('test shortest network', () => {
         { devices: [25, 99], nearestStation: null }
     ]
 
+
+
     let server: any;
     beforeAll(async () => {
         const mod = await import('..');
@@ -34,4 +38,8 @@ describe('test shortest network', () => {
 
     })
 
+    it('should return result match with dynamic input result', async () => {
+        const res = await request(server).get('/').send({ stationLocationBody: dynamicStationLocationBody, devicesBody: dynamicDevicesBody })
+        expect(JSON.stringify(res.body.paths)).toEqual(JSON.stringify(dynamicInputResult))
+    })
 })
