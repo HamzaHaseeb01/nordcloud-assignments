@@ -25,7 +25,7 @@ export const SuitableNetworkLocations = (req: Request, res: Response) => {
     if (devicesBody && devicesBody.length) devices = devicesBody //if devices are passed in body thatn it will use that one otherwise the one defined above
 
     // iterating the array's to calculate highest non zero speed b/w station and devices
-    const result = devices.map((deviceCoordinates: devicesTypes) => {
+    const paths = devices.map((deviceCoordinates: devicesTypes) => {
         const shortestPath = stationLocation
             .map((stationCoordintes: stationTypes) => {//iterating stationLocation for each device to find maximum speed
                 const distance = FindDistance(deviceCoordinates, [
@@ -39,10 +39,10 @@ export const SuitableNetworkLocations = (req: Request, res: Response) => {
             .sort((x, y) => x.speed - y.speed) // sorting in ascending order
             .pop();//poping out value from array that has highest speed which exist in last because of sorting in ascending order
 
-        return DisplayNearestStations(shortestPath, deviceCoordinates) //calling this function for console and return the result
+        return DisplayNearestStations(shortestPath, deviceCoordinates) //calling this function for console and return the paths
 
     });
-    return res.status(200).json({ result });
+    return res.status(200).json({ paths });
 };
 
 
