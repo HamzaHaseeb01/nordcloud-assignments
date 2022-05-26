@@ -10,3 +10,5 @@ Unit testing is done using javascript testing frameword (JEST).There are two tes
 
 
 This application is deployed on aws ec2 aws instance ()
+
+I have also tested the api's using postman. For dynamic inputs you can passed the arguments in body.
