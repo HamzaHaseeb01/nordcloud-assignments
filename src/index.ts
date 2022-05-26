@@ -1,7 +1,7 @@
 import express from "express";
 import { SuitableNetworkLocations } from './service/network';
 
-const PORT =   5000
+const PORT = process.env.PORT || 5000
 
 console.log(PORT, 'PORT')
 
@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 app.get('/', SuitableNetworkLocations);
 
 app.listen(PORT, () => {
-    console.log(`server listening at http://localhost:${PORT}`);
+    console.log(`server listening at http://localhost:${PORT}`)
 })
 
 export default app
