@@ -9,6 +9,6 @@ The main code file exit under the src/service/network.ts.In that file there are 
 Unit testing is done using javascript testing frameword (JEST).There are two test cases under one test suite. first test case (it('should return result using static value for station and devices')) is without the input to test the static variables(stationLocation,devices) defined in network.ts.The second one (it('should return result match with dynamic input result')) is with input values (inputs are defined under the same foler in input.ts file).
 
 
-This application is deployed on aws ec2 aws instance ()
+This application is deployed on aws ec2 aws instance (http://ec2-16-170-222-180.eu-north-1.compute.amazonaws.com:5000/)
 
 I have also tested the api's using postman. For dynamic inputs you can passed the arguments in body.
